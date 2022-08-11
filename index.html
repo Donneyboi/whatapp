@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mobilewhatapp</title>
+
+<script type="text/javascript" src="java/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/css.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="css/all.css">
+<link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+<script type="text/javascript" src="java/sweetalert-dev.js"></script>
+	
+</head>
+<body>
+	<main>
+		<div class="checkload"></div>
+
+	<script type="text/javascript">
+		
+				$(document).ready(function(){
+				$('.checkload').load('checklogin.php');
+			});
+		
+			</script>
+
+		<div class="forregister">
+
+			<div class="signup">
+				<div style="display: flex; width: 100%; height: 20vh;" class="showx"></div>
+
+
+
+							<script type="text/javascript">
+				$(document).ready(function () {
+				$('.register').on('submit',function (para) {
+					para.preventDefault();
+					$.ajax({
+				url:"processsignup.php",
+                 type:"post",
+                 data:new FormData(this),
+                 contentType:false,
+                 cache:false,
+                 processData:false,
+                 beforeSend:function(){
+                  $('.showx').html("wait");
+                 },
+                 success:function(para2){
+                 	$('.showx').html(para2);
+                 },
+                 error:function(){
+                 	alert('error typing to processData');
+                 }
+
+					})
+				});
+				})
+			</script>
+				<form class="register" action="processsignup.php">
+
+					<div class="firstdiv">
+						<h3 class="inputh1">Whats Your Name</h3>
+						<div class="twoinpt">
+							<input type="firstname" name="firstname" placeholder="firstname">
+							<input type="lastname" name="lastname" placeholder="lastname">
+						</div>
+						<button class="inputbutton showemail" type="button">Next</button>
+					    </div>
+
+
+
+					    	<div class="email">
+						<h3 class="inputh1"> Your  Email Address</h3>
+				       <input type="email" name="email" placeholder="email" class="myinput">
+							<div class="buttondiv">
+							<button type="button" class="closefirstdiv">Back</button>
+							<button type="button" class="showedate">Next</button>
+						</div>
+						</div>
+
+						<div class="datediv">
+						<h3 class="inputh1">When's Your Birthday</h3>
+				       <input type="date" name="date" value="" class="myinput">
+							<div class="buttondiv">
+							<button type="button" class="closeemail">Back</button>
+							<button type="button" class="showegender">Next</button>
+						</div>
+						</div>
+
+
+						
+
+							<div class="gender">
+						<h3 class="inputh1"> Your  Gender</h3>
+						<div class="ge">
+				       <label class="fa fa-male"><input type="radio" name="gender" value="male"></label>
+				       <label class="fa fa-female"><input type="radio" name="gender" value="male"></label>
+				       </div>
+
+							<div class="buttondiv">
+							<button type="button" class="closedate">Back</button>
+							<button type="button" class="showcountry">Next</button>
+						</div>
+						</div>
+
+
+
+						<div class="country">
+						<h3 class="inputh1"> Select your country</h3>
+						<select name="country">
+							<option>select country</option>
+							<option>ghana</option>
+							<option>nigeria</option>
+						</select>
+
+							<div class="buttondiv">
+							<button type="button" class="closegender">Back</button>
+							<button type="button" class="showpassword">Next</button>
+						</div>
+						</div>
+
+
+
+					<div class="passworddiv">
+						<h3 class="inputh1">Create Password</h3>
+						<div class="twoinpt">
+							<input type="password" name="password" placeholder="password">
+							<input type="password" name="confirmpassword" placeholder="confirmpassword">
+						</div>
+					     <div class="buttondiv">
+							<button type="button" class="closecountry">Back</button>
+							<button type="button" class="showpfinish">Next</button>
+						</div>
+					    </div>
+
+					    <div class="finishdiv">
+					    	<h3 class="inputh1">Finish Signing UP</h3>
+					    	<p>By tapping finish your agree to our Term,Data Policy and cookies Policy</p>
+						
+							<input type="submit" name="reg" value="signup" style="width: 60%;
+	height: 40px;
+	color: white;
+	background-color: blue;
+	outline: none;
+	border: none;
+	border-radius: 6px;
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: bold;">
+							
+						
+						<button class="inputbutton  closepassw" type="button">back</button>
+					    </div>
+
+
+
+						
+
+			
+
+					
+
+				</form>
+		<span class="showsigin  regspan">Already Have an Account</span>
+			</div>
+<!---------------------------------------------------------signin ----------------------------------------------------->
+			<div class="signin">
+               
+
+				<script type="text/javascript">
+				$(document).ready(function () {
+				$('.login').on('submit',function (para) {
+					para.preventDefault();
+					$.ajax({
+				url:"processsignin.php",
+                 type:"post",
+                 data:new FormData(this),
+                 contentType:false,
+                 cache:false,
+                 processData:false,
+                 beforeSend:function(){
+                  $('.showxx').html("wait");
+                 },
+                 success:function(para2){
+                 	$('.showxx').html(para2);
+                 },
+                 error:function(){
+                 	alert('error typing to processData');
+                 }
+
+					})
+				});
+				})
+			</script>
+             <div class="loginimage"></div>
+   <div class="showxx" style="color: black;"></div>
+				<form class="login" action="processsignin.php" method="post">
+					<input type="text" name="email" placeholder="email"/>
+						<input type="password" name="password" placeholder="password"/>
+						<input type="submit" name="login" placeholder="" value="signin" style="background: blue; margin-top: 5px; font-weight: bold; font-family: sans-serif; color: white;font: 17px;">
+				</form>
+				<span class="showsigup ">dont have an accout</span>
+			</div>
+
+		</div>
+		<div class="homepage">
+
+			<section class="sec1">
+
+				<div class="storie">
+
+					<div class="storiehead">
+						<h1>Stories</h1>
+						<span class="fa fa-image showhpost"></span>
+						<span class="adds">add storie</span>
+						</div>
+
+						<div class="storiebody">
+							<div class="overflowbigdiv">
+								<script type="text/javascript">
+									$(document).ready(function(){
+										$('.overflowbigdiv').load('fetchshortstory.php');
+									});
+								</script>
+							</div>
+							<div class="showall">
+						<script type="text/javascript">
+							function shh(){
+							$(document).ready(function () {
+								$('.showall').load('showallpost.php');
+							});
+						}
+
+						shh();
+						</script>
+                          </div>
+						</div>
+					</div>
+					
+		
+
+<!-----------------------------------------chat------------------------------------------------------------------------->
+				<div class="chat">
+
+					<div class="chathead">
+						<h1>Chat</h1>
+
+						<span class=" fa fa-search"><input type="search" name="" placeholder="search"></span>
+					</div>
+                            
+                            <div class="chatbody">
+
+                            	<div class="smallchatdiv">
+                            		<div class="chatimage">
+                            			<img src="img/2022_07_19_16_45_IMG_2770.png">
+                            		</div>
+                            		<div class="chatname">
+                            			<h3>dominic mathew</h3>
+                            			<p>how far niga</p>
+                            		</div>
+                            		<div class="chatbox">
+                            			<span>1</span>
+                            			<p>15:34pm</p>
+                            		</div>
+                            	</div>
+                                 
+
+                                 <div class="smallchatdiv">
+
+                            		<div class="chatimage">
+                            			<img src="img/2022_07_19_16_45_IMG_2770.png">
+                            		</div>
+                            		<div class="chatname">
+                            			<h3>dominic mathew</h3>
+                            			<p>how far niga</p>
+                            		</div>
+                            		<div class="chatbox">
+                            			<span>1</span>
+                            			<p>15:34pm</p>
+                            		</div>
+                            	</div>
+
+                            </div>
+
+
+				</div>
+				<!---------------------------------------------------------------notification---------------------------------->
+				<div class="notification">
+					<div class="notificationhead">
+						<h1>Notification</h1>
+					</div>
+					<div class="notificationbody">
+						<div class="smallnoti">
+							<div class="smallimage"></div>
+							<div class="smallname">
+								<h3>dominic</h3>
+								<p>likes your photo</p>
+							</div>
+							<div class="smalltime"><p>12:30pm</p></div>
+						</div>
+					</div>
+
+
+				</div>
+
+				<!---------------------------------user------------------------------------------------------->
+				<div class="user">
+							<button class="darkmode">check</button>
+				</div>
+
+			</section>
+
+
+			<section class="sec2">
+<label class="fa fa-bars s"><span>Stories</span></label>
+<label class="fa fa-comment c"><span>chat</span></label>
+<label class="fa fa-bell n"><span>notification</span></label>
+<label class="fa fa-user u"><span>user</span></label>
+			</section>
+		</div>
+		<!----------------------------------------------------hidden postdiv----------------------------------------------------->
+		<div class="hpost">
+			<form class="hpostform" action="processpost.php" method="post"  enctype="multipart/form-data">
+
+              
+              <div class="sho"></div>
+
+				<script type="text/javascript">
+				$(document).ready(function () {
+				$('.hpostform').on('submit',function (para) {
+					para.preventDefault();
+					$.ajax({
+				url:"processpost.php",
+                 type:"post",
+                 data:new FormData(this),
+                 contentType:false,
+                 cache:false,
+                 processData:false,
+                 beforeSend:function(){
+                 $('.sho').html("wait");
+                 },
+                 success:function(para2){
+                 	$('.sho').html(para2);
+                 	shh();
+
+                 },
+                 error:function(){
+                 	alert('error typing to processData');
+                 }
+
+					})
+				});
+				})
+			</script>
+				<div class="hposthead">
+					<h3>Post</h3>
+					<input type="submit" name="" value="post" class="closehpost">
+				</div>
+				<textarea name="textpost"></textarea>
+				<label for="img" class="fa fa-image">
+				<input  type="file" name="myfile[]" accept="" multiple  name=""id="img" style="display: none;" />
+				</lebal>
+			</form>
+
+
+
+
+
+
+
+
+			<!-----------------------------------------storei---------------------->
+
+			</div>
+			<form class="forms2" action="processtories.php" method="post" enctype="multipart/form-data">
+				<input type="file" name="files[]" accept="" multiple >
+
+         <textarea name="smessage"></textarea>
+         <input type="submit" name="" placeholder="shaere">
+				
+
+
+			</form>
+		</div>
+
+	</main>
+<script type="text/javascript" src="java/java.js"></script>
+</body>
+</html>
